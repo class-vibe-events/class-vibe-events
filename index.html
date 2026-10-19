@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Class Vibe Events — keeping it local. Events, fundraising and good times across Northumberland and the North East.">
+  <title>Class Vibe Events | Keeping It Local</title>
+  <style>
+    :root {
+      --black: #090909;
+      --panel: #141414;
+      --panel2: #1c1a16;
+      --gold: #d7b15a;
+      --gold-light: #f4dc91;
+      --cream: #f7f2e7;
+      --muted: #c3bcae;
+      --line: rgba(215,177,90,.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--black); color: var(--cream); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+    a { color: var(--gold-light); }
+    .wrap { width: min(1120px, 92%); margin: auto; }
+    header { background: rgba(9,9,9,.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+    .nav { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { color: var(--cream); text-decoration: none; font-weight: 900; letter-spacing: 1.5px; font-size: 1.15rem; }
+    .brand span { color: var(--gold); }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: var(--cream); font-size: .93rem; }
+    nav a:hover { color: var(--gold-light); }
+    .hero { min-height: 570px; display: grid; place-items: center; text-align: center; padding: 90px 0; background: radial-gradient(ellipse at top, #332817 0%, #17130d 35%, #090909 75%); border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--gold-light); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; font-size: .8rem; }
+    h1 { font-size: clamp(3rem, 8vw, 6.2rem); line-height: .98; letter-spacing: -2px; margin: 18px 0 8px; }
+    h1 .gold { color: var(--gold); }
+    .tagline { font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--gold-light); letter-spacing: 2px; font-weight: 700; margin: 8px 0 20px; }
+    .hero p { max-width: 660px; margin: 0 auto 28px; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 13px 22px; border: 1px solid var(--gold); border-radius: 3px; font-weight: 800; text-decoration: none; }
+    .btn.primary { background: var(--gold); color: #111; }
+    .btn.secondary { color: var(--gold-light); background: transparent; }
+    .btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    section { padding: 72px 0; }
+    section:nth-of-type(even) { background: #0e0e0e; }
+    .section-head { text-align: center; margin-bottom: 34px; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 12px; }
+    h2 span { color: var(--gold); }
+    .section-head p { color: var(--muted); max-width: 680px; margin: auto; }
+    .about { max-width: 800px; margin: auto; text-align: center; color: var(--muted); font-size: 1.08rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: linear-gradient(145deg, var(--panel2), var(--panel)); border: 1px solid var(--line); padding: 26px; border-radius: 6px; }
+    .card .symbol { font-size: 1.8rem; color: var(--gold); }
+    .card h3 { margin: 10px 0; font-size: 1.35rem; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+    .pill { display: inline-block; border: 1px solid var(--line); color: var(--gold-light); padding: 4px 9px; border-radius: 99px; font-size: .78rem; margin-bottom: 8px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .photo { min-height: 190px; border: 1px dashed var(--gold); border-radius: 5px; background: linear-gradient(135deg, #2c2415, #111); display: grid; place-items: center; text-align: center; padding: 18px; color: var(--gold-light); }
+    .photo small { display: block; color: var(--muted); margin-top: 5px; }
+    .updates { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .notice { border-left: 3px solid var(--gold); padding: 16px 20px; background: var(--panel); }
+    .notice p { color: var(--muted); margin-bottom: 0; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: start; }
+    .contact-details p { color: var(--muted); }
+    form { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+    label { display: block; margin: 12px 0 6px; color: var(--gold-light); font-weight: 700; font-size: .92rem; }
+    input, select, textarea { width: 100%; padding: 12px; border-radius: 3px; border: 1px solid #51472f; background: #090909; color: var(--cream); font: inherit; }
+    textarea { min-height: 120px; resize: vertical; }
+    form button { margin-top: 16px; width: 100%; cursor: pointer; font: inherit; }
+    .smallprint { color: #a69e90; font-size: .84rem; }
+    footer { padding: 26px 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .9rem; }
+    footer strong { color: var(--gold); }
+    @media (max-width: 760px) {
+      .nav { padding: 15px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px 16px; }
+      .cards, .gallery, .updates, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 500px; }
+      section { padding: 54px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">CLASS VIBE <span>EVENTS</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#updates">Updates</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="eyebrow">Northumberland &amp; the North East</div>
+        <h1>CLASS VIBE<br><span class="gold">EVENTS</span></h1>
+        <div class="tagline">Keeping It Local</div>
+        <p>Bringing people together, one great event at a time. From community fundraisers and fun nights out to special celebrations, let’s make something brilliant happen locally.</p>
+        <div class="actions">
+          <a class="btn primary" href="#events">See What’s On</a>
+          <a class="btn secondary" href="#contact">Book or Enquire</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><h2>Good people. <span>Great vibes.</span></h2><p>Local events with a big heart.</p></div>
+        <div class="about">
+          <p>Class Vibe Events is all about creating welcoming, memorable occasions for our local communities across Northumberland and the North East. Whether it’s a fundraiser, a themed night, a family-friendly get-together or a private celebration, we want everyone to feel part of it.</p>
+          <p>We believe in supporting local people, local venues and good causes — while making every event a proper good time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="events">
+      <div class="wrap">
+        <div class="section-head"><h2>Events &amp; <span>Bookings</span></h2><p>Keep an eye out for upcoming dates, or get in touch to chat about an event of your own.</p></div>
+        <div class="cards">
+          <article class="card"><div class="symbol">✦</div><span class="pill">Community nights</span><h3>Bingo &amp; Social Events</h3><p>Fun, friendly nights to bring everyone together. Add confirmed dates, venue and ticket details here when announced.</p></article>
+          <article class="card"><div class="symbol">♡</div><span class="pill">Fundraising</span><h3>Fundraisers for Good Causes</h3><p>Helping local groups and good causes raise funds through enjoyable, community-led events.</p></article>
+          <article class="card"><div class="symbol">✧</div><span class="pill">Your occasion</span><h3>Private Events</h3><p>Have an idea for a celebration or get-together? Tell us what you have in mind and we’ll talk through the options.</p></article>
+        </div>
+        <p class="smallprint" style="text-align:center;margin-top:20px;">Event dates, venues and ticket links will be added here once confirmed.</p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head"><h2>Our <span>Gallery</span></h2><p>A few memories from the events, people and places that make it all worthwhile.</p></div>
+        <div class="gallery">
+          <div class="photo">Add your event photo here<small>Replace this box with a real photo</small></div>
+          <div class="photo">Community moments<small>Replace this box with a real photo</small></div>
+          <div class="photo">Fundraising &amp; fun<small>Replace this box with a real photo</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="wrap">
+        <div class="section-head"><h2>News &amp; <span>Updates</span></h2><p>Check back for announcements, new dates and local event news.</p></div>
+        <div class="updates">
+          <article class="notice"><strong>What’s coming up?</strong><p>Upcoming events will be posted here as soon as dates and venues are confirmed.</p></article>
+          <article class="notice"><strong>Got an idea?</strong><p>We’d love to hear about local causes, venues or event ideas. Send us a message and let’s have a chat.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head"><h2>Let’s make it <span>happen</span></h2><p>Ask about an event, book a place, discuss fundraising or enquire about a private booking.</p></div>
+        <div class="contact-grid">
+          <div class="contact-details">
+            <h3>Get in touch</h3>
+            <p>We’re keeping it local across Northumberland and the North East. Use the form to tell us what you’re interested in and we’ll get back to you.</p>
+            <p><strong>Email:</strong> <a href="mailto:REPLACE-WITH-YOUR-EMAIL@example.com">Add your email address</a></p>
+            <p><strong>Facebook:</strong> <a href="https://www.facebook.com/" target="_blank" rel="noopener">Add your Class Vibe Events page link</a></p>
+            <p class="smallprint">Before publishing, replace the example email and Facebook link with your real details.</p>
+          </div>
+          <form id="booking-form">
+            <label for="name">Your name</label><input id="name" name="name" required placeholder="Your name">
+            <label for="email">Your email or phone number</label><input id="email" name="email" required placeholder="How can we contact you?">
+            <label for="interest">What’s your enquiry about?</label>
+            <select id="interest" name="interest"><option>Event tickets / places</option><option>Fundraising event</option><option>Private booking</option><option>Venue or collaboration</option><option>Something else</option></select>
+            <label for="message">Your message</label><textarea id="message" name="message" required placeholder="Tell us a little more..."></textarea>
+            <button class="btn primary" type="submit">Prepare Enquiry Email</button>
+            <p class="smallprint">This form opens your email app with your message ready to send. It does not take payments or store bookings online.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><strong>Class Vibe Events</strong> — Keeping It Local<br>Northumberland &amp; the North East</div></footer>
+
+  <script>
+    // IMPORTANT: Replace this with the email address you want enquiries sent to.
+    const BUSINESS_EMAIL = "REPLACE-WITH-YOUR-EMAIL@example.com";
+    document.getElementById("booking-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = new FormData(event.target);
+      const subject = encodeURIComponent("Class Vibe Events enquiry: " + form.get("interest"));
+      const body = encodeURIComponent(
+        "Name: " + form.get("name") + "\n" +
+        "Contact: " + form.get("email") + "\n" +
+        "Enquiry: " + form.get("interest") + "\n\n" +
+        "Message:\n" + form.get("message")
+      );
+      window.location.href = "mailto:" + BUSINESS_EMAIL + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
